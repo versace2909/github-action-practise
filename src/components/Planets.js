@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useQuery, useQueryClient } from "react-query";
+import { useQuery } from "react-query";
 import Planet from "./Planet";
 
 const fetchPlanets = async (page) => {

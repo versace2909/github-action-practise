@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Starw Wars Info</h1>
+      <h1>Star Wars Info - Re-deployment</h1>
       <Navbar onChangePage={setPage} />
       <div className="content">
         {page === "planets" ? (
