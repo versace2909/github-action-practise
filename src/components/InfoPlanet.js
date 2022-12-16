@@ -9,7 +9,7 @@ const fetchPlanets = async (page) => {
 };
 
 const InfoPlanet = React.memo(() => {
-  const [page, setPage] = useState(1);
+  const [page] = useState(1);
   const { data, status, isLoading, isFetched } = useQuery(
     ["planets-1", page],
     () => fetchPlanets(page),
