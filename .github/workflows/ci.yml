@@ -21,6 +21,8 @@ jobs:
       - name: build project
         if: github.event_name == 'push'
         run: npm run build
+        env:
+          CI: false
       - name: deploy to surge
         if: github.event_name == 'push'
         run: npx surge --project ./build --domain dung-viet-silent.surge.sh
