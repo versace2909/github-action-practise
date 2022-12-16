@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
+import InfoPlanet from "./InfoPlanet";
 import Planet from "./Planet";
 
 const fetchPlanets = async (page) => {
@@ -12,7 +13,7 @@ const fetchPlanets = async (page) => {
 const Planets = () => {
   const [page, setPage] = useState(1);
   const { data, status } = useQuery(
-    ["planets", page],
+    [`planets-${page}`, page],
     () => fetchPlanets(page),
     {
       keepPreviousData: true,
@@ -22,6 +23,7 @@ const Planets = () => {
   return (
     <>
       <div>Planets</div>
+      <InfoPlanet />
       {status === "error" && <div>Error fetching data</div>}
       {status === "loading" && <div>Loading data...</div>}
       {status === "success" && (
