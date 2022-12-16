@@ -23,6 +23,12 @@ jobs:
         run: npm run build
         env:
           CI: false
+      - name: Upload build artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifact
+          path: build
       - name: deploy to surge
         if: github.event_name == 'push'
         run: npx surge --project ./build --domain dung-viet-silent.surge.sh
